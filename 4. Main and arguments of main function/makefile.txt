@@ -1,0 +1,19 @@
+all: help.out strlength.out strconcat.out strcompare.out
+
+help.out: string_functions_help.c
+	gcc -g -o help.out string_functions_help.c
+
+mystrings.o: mystrings.c mystrings.h
+	gcc -g -c mystrings.c -o mystrings.o
+
+strlength.out: strlength.c mystrings.o mystrings.h
+	gcc -g strlength.c mystrings.o -o strlength.out
+
+strconcat.out: strconcat.c mystrings.o mystrings.h
+	gcc -g strconcat.c mystrings.o -o strconcat.out
+
+strcompare.out: strcompare.c mystrings.o mystrings.h
+	gcc -g strcompare.c mystrings.o -o strcompare.out
+
+clean:
+	rm -f help.out help.exe mystrings.o strlength.out strconcat.out strcompare.out

@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "schoolclass.h": "c",
+        "schoolroom.h": "c"
+    }
+}
