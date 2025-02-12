@@ -1,0 +1,16 @@
+all: smarthouse.out main.out
+
+smarthouse.out: smarthouse.c
+	gcc smarthouse.c -o smarthouse.out
+
+main.out: main.o product.o
+	gcc main.o product.o -o main.out
+
+main.o: main.c product.h
+	gcc -c main.c -o main.o
+
+product.o: product.c product.h
+	gcc -c product.c -o product.o
+
+clean:
+	rm -f *.o *.out

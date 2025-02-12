@@ -1,0 +1,11 @@
+smartcar.out: smartcar.c
+	gcc smartcar.c -o smartcar.out
+
+main.out: main.c counter.o
+	gcc main.c counter.o -o main.out
+
+counter.o: counter.c counter.h
+	gcc -c counter.c -o counter.o
+
+clean:
+	rm -f *.o *.out

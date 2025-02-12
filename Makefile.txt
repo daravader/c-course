@@ -1,0 +1,22 @@
+# Makefile
+
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c11
+DEPS = processes.h
+OBJ = processes.o taskmanager.o
+
+all: taskmanager
+
+taskmanager: $(OBJ)
+	$(CC) $(CFLAGS) -o taskmanager $(OBJ)
+
+processes.o: processes.c $(DEPS)
+	$(CC) $(CFLAGS) -c processes.c
+
+taskmanager.o: taskmanager.c $(DEPS)
+	$(CC) $(CFLAGS) -c taskmanager.c
+
+clean:
+	rm -f *.o taskmanager
+
+.PHONY: all clean
